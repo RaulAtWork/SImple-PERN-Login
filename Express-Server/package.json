@@ -1,0 +1,17 @@
+{
+  "name": "express-server",
+  "version": "1.0.0",
+  "description": "login handeler",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "expressjs": "^1.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.42.0"
+  }
+}
