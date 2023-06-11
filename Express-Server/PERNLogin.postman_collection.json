@@ -13,11 +13,113 @@
 					"name": "Test",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/test",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"test"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Log in test",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}?user=test",
+							"host": [
+								"{{endpoint}}"
+							],
+							"query": [
+								{
+									"key": "user",
+									"value": "test"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Log in failed",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}?user=",
+							"host": [
+								"{{endpoint}}"
+							],
+							"query": [
+								{
+									"key": "user",
+									"value": ""
+								}
+							]
+						}
 					},
 					"response": []
 				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"// Define variables",
+							"var baseUrl = 'http://localhost:4040';",
+							"var endpoint = '/users';",
+							"",
+							"// Combine baseUrl and endpoint to form the complete URL",
+							"pm.environment.set('url', baseUrl + endpoint);",
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
 			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "endpoint",
+			"value": "http://localhost:4040/users",
+			"type": "string"
 		}
 	]
 }
