@@ -1,7 +1,8 @@
 import React from "react";
+import Login from "./components/Login";
 
 function App() {
-  return <h1>Login PERN</h1>;
+  return <Login />;
 }
 
 export default App;
