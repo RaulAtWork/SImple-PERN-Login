@@ -7,7 +7,7 @@ Simple React + Express js Log Icd n web page.
 ## Tasks
 
 - Front-end
-  - Create a React project
+  - ✅ Create a React project
   - Create pages:
     - Login
     - Registration
@@ -15,7 +15,7 @@ Simple React + Express js Log Icd n web page.
   - Use Axios to make the HTTP requests
   - Store JWT token securely on cookies or local storage
 - Back-end
-  - Create an Express.js server to handle HTTP requests
+  - ✅ Create an Express.js server to handle HTTP requests
   - Create routes to handle:
     - Login
     - Registration
