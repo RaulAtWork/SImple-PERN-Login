@@ -1,0 +1,23 @@
+{
+	"info": {
+		"_postman_id": "833782b7-afbb-47ed-ac1a-29a8dbbe2abf",
+		"name": "PERNLogin",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27660704"
+	},
+	"item": [
+		{
+			"name": "/Users",
+			"item": [
+				{
+					"name": "Test",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
