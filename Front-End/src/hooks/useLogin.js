@@ -4,20 +4,31 @@ import axios from "axios";
 const endpoint = "http://localhost:4040/users/login";
 
 export default function useLogin() {
-  const [response, setResponse] = useState();
+  const [response, setResponse] = useState("");
   const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   async function login(credentials) {
     try {
+      setLoading(true);
       const res = await axios.post(endpoint, credentials);
-      console.log(JSON.stringify(res));
-      setResponse(res.ok);
+      setResponse(res.data.message);
       setError(false);
     } catch (error) {
-      setResponse("Login failed");
+      if (
+        error.response &&
+        error.response.data &&
+        error.response.data.message
+      ) {
+        setResponse(error.response.data.message);
+      } else {
+        setResponse("Unexpected error");
+      }
       setError(true);
+    } finally {
+      setLoading(false);
     }
   }
 
-  return [response, error, login];
+  return [response, error, loading, login];
 }

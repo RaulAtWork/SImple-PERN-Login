@@ -16,7 +16,7 @@ router.use(bodyParser.json());
 //LOGIN - post
 router.post("/login", (req, res) => {
   const { username, password } = req.body;
-  console.log(req.body);
+  console.log("users/login POST Request: ", req.body);
 
   if (
     users.some(

@@ -6,7 +6,7 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState();
 
-  const [response, logError, login] = useLogin();
+  const [response, logError, loading, login] = useLogin();
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -15,7 +15,7 @@ export default function Login() {
       return;
     }
 
-    login({ username, password });
+    login({ username: username.trim(), password });
 
     //reset error
     if (error) {
@@ -32,7 +32,7 @@ export default function Login() {
           <input
             type="text"
             value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            onChange={(e) => setUsername(e.target.value.trim())}
           />
         </label>
         <label>
@@ -44,10 +44,12 @@ export default function Login() {
           />
         </label>
         {error && <p className="error">{error}</p>}
-        <button type="submit">Log in</button>
-        {logError && <p className="error">{logError}</p>}
-        {response && <p className="success">{response}</p>}
+        <button type="submit" disabled={loading}>
+          Log in
+        </button>
       </form>
+      {logError && <p className="error">{response}</p>}
+      {!logError && response && <p className="success">{response}</p>}
     </div>
   );
 }
