@@ -1,6 +1,8 @@
 # SImple-PERN-Login
 
-Simple React + Express js Log Icd n web page.
+Simple React + ExpressJS + PostgreSQL(WIP) Login web page. <br>
+Here is an example of a working solution [punit-suman's PERN-Authenticator](https://github.com/punit-suman/PERN-authentication).
+<br>
 
 ---
 
@@ -24,7 +26,7 @@ Simple React + Express js Log Icd n web page.
   - Generate a JSON Web Token(JWT) upon successful login for authentication and login management
 - Integration
   - ✅ Connect front-end to back-end using API requests
-  - Handle cors
+  - ✅ Handle CORS
   - Handle and display error messages on the UI
 
 ---
