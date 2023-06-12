@@ -1,9 +1,12 @@
 import React, { useState } from "react";
+import useLogin from "../hooks/useLogin";
 
 export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState();
+
+  const [response, logError, login] = useLogin();
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -12,6 +15,9 @@ export default function Login() {
       return;
     }
 
+    login({ username, password });
+
+    //reset error
     if (error) {
       setError();
     }
@@ -39,6 +45,8 @@ export default function Login() {
         </label>
         {error && <p className="error">{error}</p>}
         <button type="submit">Log in</button>
+        {logError && <p className="error">{logError}</p>}
+        {response && <p className="success">{response}</p>}
       </form>
     </div>
   );
