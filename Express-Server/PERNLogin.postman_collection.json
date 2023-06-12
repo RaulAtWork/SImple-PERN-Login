@@ -29,17 +29,30 @@
 				{
 					"name": "Log in test",
 					"request": {
-						"method": "GET",
+						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"paco\",\r\n    \"password\": \"paco\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "{{endpoint}}?user=test",
+							"raw": "{{endpoint}}/login",
 							"host": [
 								"{{endpoint}}"
 							],
+							"path": [
+								"login"
+							],
 							"query": [
 								{
-									"key": "user",
-									"value": "test"
+									"key": "username",
+									"value": "paco",
+									"disabled": true
 								}
 							]
 						}
@@ -47,19 +60,32 @@
 					"response": []
 				},
 				{
-					"name": "Log in failed",
+					"name": "Log in test failed",
 					"request": {
-						"method": "GET",
+						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"paco\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "{{endpoint}}?user=",
+							"raw": "{{endpoint}}/login",
 							"host": [
 								"{{endpoint}}"
 							],
+							"path": [
+								"login"
+							],
 							"query": [
 								{
-									"key": "user",
-									"value": ""
+									"key": "username",
+									"value": "paco",
+									"disabled": true
 								}
 							]
 						}
