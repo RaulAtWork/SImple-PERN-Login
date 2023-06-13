@@ -9,9 +9,34 @@ router.post("/login", (req, res) => {
   console.log("users/login POST Request: ", req.body);
 
   if (validateUser(req.body)) {
+    req.session.username = req.body.username;
     res.status(200).json({ message: "Login successful" });
   } else {
     res.status(401).json({ message: "Login failed" });
+  }
+});
+
+//Check session data
+router.get("/logged", (req, res) => {
+  console.log("users/session GET Request");
+  if (req.session.username) {
+    res.status(200).json({ Logged: true, session: req.session });
+  } else {
+    res.status(200).json({ Logged: false });
+  }
+});
+
+//Logout
+router.get("/logout", (req, res) => {
+  console.log("users/logout GET Request");
+  try {
+    if (req.session.username) {
+      req.session.destroy();
+      res.clearCookie("sessionCookie");
+    }
+    res.status(200).json({ message: "Logged out" });
+  } catch (error) {
+    console.log(error);
   }
 });
 

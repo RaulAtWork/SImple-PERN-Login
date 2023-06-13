@@ -27,6 +27,7 @@ app.use(
 //configure the session
 app.use(
   session({
+    name: "sessionCookie",
     secret: process.env.SECRET_KEY,
     cookie: { maxAge: 1000 * 60 * 10 }, //10 min
     saveUninitialized: false,
