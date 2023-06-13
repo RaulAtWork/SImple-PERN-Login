@@ -1,10 +1,10 @@
 import express from "express";
-import usersRouter from "./users.js";
+import usersRouter from "./routes/users.js";
 
 import cors from "cors";
 
 const app = express();
-const port = 4040;
+const port = process.env.PORT || 4040;
 
 app.use(
   cors({
