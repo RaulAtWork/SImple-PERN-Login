@@ -7,6 +7,7 @@ export default function useLogin() {
   const [response, setResponse] = useState("");
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [authenticated, setAuthenticated] = useState(false);
 
   async function login(credentials) {
     try {
@@ -14,6 +15,7 @@ export default function useLogin() {
       const res = await axios.post(endpoint, credentials);
       setResponse(res.data.message);
       setError(false);
+      setAuthenticated(true);
     } catch (error) {
       if (
         error.response &&
@@ -30,5 +32,5 @@ export default function useLogin() {
     }
   }
 
-  return [response, error, loading, login];
+  return [response, error, loading, authenticated, login];
 }

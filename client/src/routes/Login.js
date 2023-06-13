@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import useLogin from "../hooks/useLogin";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState();
 
-  const [response, logError, loading, login] = useLogin();
+  const [response, logError, loading, authenticated, login] = useLogin();
+
+  const navigate = useNavigate();
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -22,6 +25,13 @@ export default function Login() {
       setError();
     }
   }
+
+  useEffect(() => {
+    console.log("authentication changed ", authenticated);
+    if (authenticated) {
+      navigate("/home");
+    }
+  }, [authenticated]);
 
   return (
     <div className="box">
