@@ -8,7 +8,6 @@ import dotenv from "dotenv";
 //We create the express server adn set up config
 const app = express();
 const port = process.env.PORT || 4040;
-const store = new session.MemoryStore();
 dotenv.config();
 
 //decode using json
@@ -19,7 +18,7 @@ app.use(bodyParser.json());
 app.use(
   cors({
     origin: ["http://localhost:3000"],
-    methods: ["POST"],
+    methods: ["POST", "GET"],
     credentials: true,
   })
 );
@@ -32,7 +31,6 @@ app.use(
     cookie: { maxAge: 1000 * 60 * 10 }, //10 min
     saveUninitialized: false,
     resave: false,
-    store,
   })
 );
 

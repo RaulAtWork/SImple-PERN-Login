@@ -12,7 +12,9 @@ export default function useLogin() {
   async function login(credentials) {
     try {
       setLoading(true);
-      const res = await axios.post(endpoint, credentials);
+      const res = await axios.post(endpoint, credentials, {
+        withCredentials: true,
+      });
       setResponse(res.data.message);
       setError(false);
       setAuthenticated(true);

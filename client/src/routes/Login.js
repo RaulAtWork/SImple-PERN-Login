@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import useLogin from "../hooks/useLogin";
-import { useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 export default function Login() {
   const [username, setUsername] = useState("");
@@ -8,8 +8,6 @@ export default function Login() {
   const [error, setError] = useState();
 
   const [response, logError, loading, authenticated, login] = useLogin();
-
-  const navigate = useNavigate();
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -26,15 +24,9 @@ export default function Login() {
     }
   }
 
-  useEffect(() => {
-    console.log("authentication changed ", authenticated);
-    if (authenticated) {
-      navigate("/home");
-    }
-  }, [authenticated]);
-
   return (
     <div className="box">
+      {authenticated && <Navigate to="/home" />}
       <h1>Login with PERN</h1>
       <form className="stacked" onSubmit={handleSubmit}>
         <label>

@@ -10,6 +10,7 @@ router.post("/login", (req, res) => {
 
   if (validateUser(req.body)) {
     req.session.username = req.body.username;
+    console.log("Session created", req.session);
     res.status(200).json({ message: "Login successful" });
   } else {
     res.status(401).json({ message: "Login failed" });
@@ -18,7 +19,11 @@ router.post("/login", (req, res) => {
 
 //Check session data
 router.get("/logged", (req, res) => {
-  console.log("users/session GET Request");
+  console.log(
+    "users/session GET Request. Has session?",
+    req.session.username ? true : false,
+    req.session
+  );
   if (req.session.username) {
     res.status(200).json({ Logged: true, session: req.session });
   } else {
