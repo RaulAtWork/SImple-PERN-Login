@@ -44,9 +44,9 @@ npm run server-dev
   - ✅ Store JWT token securely on cookies or local storage
 - Back-end
   - ✅ Create an Express.js server to handle HTTP requests
-  - Create routes to handle:
+  - ✅ Create routes to handle:
     - ✅ Login (POST)
-    - Registration (POST)
+    - ✅Registration (POST)
     - ✅ Authentication (POST)
     - ✅ Log out (GET)
   - Use a PostgreSQL database to store to store user and passwords

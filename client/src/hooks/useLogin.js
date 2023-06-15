@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
+//TODO take out endpint variables
 const endpoint = "http://localhost:4040/users/login";
 
 export default function useLogin() {
@@ -19,12 +20,8 @@ export default function useLogin() {
       setError(false);
       setAuthenticated(true);
     } catch (error) {
-      if (
-        error.response &&
-        error.response.data &&
-        error.response.data.message
-      ) {
-        setResponse(error.response.data.message);
+      if (error.response && error.response.data && error.response.data.error) {
+        setResponse(error.response.data.error);
       } else {
         setResponse("Unexpected error");
       }

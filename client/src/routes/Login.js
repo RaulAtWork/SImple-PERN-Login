@@ -1,28 +1,39 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import useLogin from "../hooks/useLogin";
 import { Navigate } from "react-router-dom";
+import { UserContext } from "../components/UserContext";
 
 export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState();
 
-  const [response, logError, loading, authenticated, login] = useLogin();
+  const { authenticated, setAuthentication } = useContext(UserContext);
+
+  const [response, logError, loading, success, login] = useLogin();
 
   function handleSubmit(event) {
     event.preventDefault();
+    const usernameTrimmed = username.trim();
+    setUsername(usernameTrimmed);
     if (!username || !password) {
       setError("Username and password must be filled");
       return;
     }
 
-    login({ username: username.trim(), password });
+    login({ username: usernameTrimmed, password });
 
     //reset error
     if (error) {
       setError();
     }
   }
+
+  useEffect(() => {
+    if (success) {
+      setAuthentication(true);
+    }
+  }, [success]);
 
   return (
     <div className="box">
@@ -34,7 +45,7 @@ export default function Login() {
           <input
             type="text"
             value={username}
-            onChange={(e) => setUsername(e.target.value.trim())}
+            onChange={(e) => setUsername(e.target.value)}
           />
         </label>
         <label>

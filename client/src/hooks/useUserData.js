@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 
+//TODO take out endpint variables
 const endpoint = "http://localhost:4040/users/logged";
 
 export default function useUserData() {
