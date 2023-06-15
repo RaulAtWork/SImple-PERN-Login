@@ -34,12 +34,12 @@ npm run server-dev
 
 ## Tasks
 
-- Front-end
+- ✅ Front-end
   - ✅ Create a React project
-  - Create pages:
+  - ✅ Create pages:
     - ✅ Login
-    - Registration
-    - Home Page (after authentication). This has to be a protected route
+    - ✅ Registration
+    - ✅ Home Page (after authentication). This has to be a protected route
   - ✅ Use Axios to make the HTTP requests
   - ✅ Store JWT token securely on cookies or local storage
 - Back-end
@@ -54,7 +54,7 @@ npm run server-dev
 - Integration
   - ✅ Connect front-end to back-end using API requests
   - ✅ Handle CORS
-  - Handle and display error messages on the UI
+  - ✅ Handle and display error messages on the UI
 
 ---
 

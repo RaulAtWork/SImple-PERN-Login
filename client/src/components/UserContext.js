@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 export const UserContext = React.createContext({
   authenticated: false,
-  setAuthentication: (value) => {},
+  setAuthentication: () => {},
 });
 
 export default function UserProvider({ children }) {
