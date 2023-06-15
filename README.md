@@ -61,3 +61,5 @@ npm run server-dev
 ## Additionals
 
 - ✅ Make a main script to install all dependencies and run both application
+- Make unit testing on backend
+- Make end2end testing on frontend
